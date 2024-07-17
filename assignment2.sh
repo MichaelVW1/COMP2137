@@ -108,14 +108,14 @@ function create_users {
         sudo useradd -m -s /bin/bash "$user"
 
         # Generate RSA key (without passphrase), automatically answering "yes" to overwrite prompt
-        echo -e "y\n" | sudo ssh-keygen -t rsa -f "/home/$user/.ssh/id_rsa" -N ""
+        echo -e "y\n" | sudo ssh-keygen -t rsa -f "/home/$user/.ssh/id_rsa" -N "" > /dev/null 2>&1
 
         # Generate Ed25519 key (without passphrase), automatically answering "yes" to overwrite prompt
         if [ "$user" == "dennis" ]; then
             # Use provided Ed25519 key for Dennis
             echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4rT3vTt99Ox5kndS4HmgTrKBT8SKzhK4rhGkEVGlCI student@generic-vm" > "/home/$user/.ssh/id_ed25519.pub"
         else
-            echo -e "y\n" | sudo ssh-keygen -t ed25519 -f "/home/$user/.ssh/id_ed25519" -N ""
+            echo -e "y\n" | sudo ssh-keygen -t ed25519 -f "/home/$user/.ssh/id_ed25519" -N "" > /dev/null 2>&1
         fi
 
         # Add user to sudo group if user is 'dennis'
