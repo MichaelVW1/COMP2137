@@ -104,7 +104,7 @@ function create_users {
 
     for user in "${users[@]}"; do
         # Create user with home directory in /home and bash as default shell
-        sudo mkdir -p "/home/$user/.ssh" "/home/$user/.ssh/id_rsa" "/home/$user/.ssh/id_ed25519" "/home/$user/.ssh/id_r>
+        sudo mkdir -p "/home/$user/.ssh"
         sudo useradd -m -s /bin/bash "$user"
 
         # Generate RSA key (without passphrase)
@@ -113,7 +113,7 @@ function create_users {
         # Generate Ed25519 key (without passphrase)
         if [ "$user" == "dennis" ]; then
             # Use provided Ed25519 key for Dennis
-            echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4rT3vTt99Ox5kndS4HmgTrKBT8SKzhK4rhGkEVGlCI student@generic-vm" >
+            echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4rT3vTt99Ox5kndS4HmgTrKBT8SKzhK4rhGkEVGlCI student@generic-vm" > "/home/$user/.ssh/id_ed25519.pub"
         else
             sudo ssh-keygen -t ed25519 -f "/home/$user/.ssh/id_ed25519" -N ""
         fi
@@ -186,5 +186,3 @@ if [ $? -eq 0 ]; then
 else
     print_message "Setup encountered errors. Please check logs for details."
 fi
-
-
