@@ -107,15 +107,15 @@ function create_users {
         sudo mkdir -p "/home/$user/.ssh"
         sudo useradd -m -s /bin/bash "$user"
 
-        # Generate RSA key (without passphrase)
-        sudo ssh-keygen -t rsa -f "/home/$user/.ssh/id_rsa" -N ""
+        # Generate RSA key (without passphrase), automatically answering "yes" to overwrite prompt
+        echo -e "y\n" | sudo ssh-keygen -t rsa -f "/home/$user/.ssh/id_rsa" -N ""
 
-        # Generate Ed25519 key (without passphrase)
+        # Generate Ed25519 key (without passphrase), automatically answering "yes" to overwrite prompt
         if [ "$user" == "dennis" ]; then
             # Use provided Ed25519 key for Dennis
             echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG4rT3vTt99Ox5kndS4HmgTrKBT8SKzhK4rhGkEVGlCI student@generic-vm" > "/home/$user/.ssh/id_ed25519.pub"
         else
-            sudo ssh-keygen -t ed25519 -f "/home/$user/.ssh/id_ed25519" -N ""
+            echo -e "y\n" | sudo ssh-keygen -t ed25519 -f "/home/$user/.ssh/id_ed25519" -N ""
         fi
 
         # Add user to sudo group if user is 'dennis'
@@ -123,8 +123,8 @@ function create_users {
             sudo usermod -aG sudo "$user"
         fi
 
-        # Create authorized_keys file and add SSH keys, overwriting if exists
-        sudo cp -f "/home/$user/.ssh/id_rsa.pub" "/home/$user/.ssh/authorized_keys"
+        # Create authorized_keys file and add SSH keys
+        sudo cp "/home/$user/.ssh/id_rsa.pub" "/home/$user/.ssh/authorized_keys"
         sudo cat "/home/$user/.ssh/id_ed25519.pub" >> "/home/$user/.ssh/authorized_keys"
 
         # Set ownership and permissions for .ssh directory and authorized_keys file
