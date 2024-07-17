@@ -123,8 +123,8 @@ function create_users {
             sudo usermod -aG sudo "$user"
         fi
 
-        # Create authorized_keys file and add SSH keys
-        sudo cp "/home/$user/.ssh/id_rsa.pub" "/home/$user/.ssh/authorized_keys"
+        # Create authorized_keys file and add SSH keys, overwriting if exists
+        sudo cp -f "/home/$user/.ssh/id_rsa.pub" "/home/$user/.ssh/authorized_keys"
         sudo cat "/home/$user/.ssh/id_ed25519.pub" >> "/home/$user/.ssh/authorized_keys"
 
         # Set ownership and permissions for .ssh directory and authorized_keys file
