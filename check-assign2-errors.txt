@@ -1,0 +1,38 @@
+WARNING:root:Cannot call Open vSwitch: ovsdb-server.service is not running.
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Warning: Permanently added 'server1-mgmt' (ED25519) to the list of known hosts.
+useradd: warning: the home directory /home/dennis already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/aubrey already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/captain already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/snibbles already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/brownie already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/scooter already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/sandy already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/perrier already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/cindy already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/tiger already exists.
+useradd: Not copying any file from skel directory into it.
+useradd: warning: the home directory /home/yoda already exists.
+useradd: Not copying any file from skel directory into it.
+WARNING:root:Cannot call Open vSwitch: ovsdb-server.service is not running.
+useradd: user 'dennis' already exists
+useradd: user 'aubrey' already exists
+useradd: user 'captain' already exists
+useradd: user 'snibbles' already exists
+useradd: user 'brownie' already exists
+useradd: user 'scooter' already exists
+useradd: user 'sandy' already exists
+useradd: user 'perrier' already exists
+useradd: user 'cindy' already exists
+useradd: user 'tiger' already exists
+useradd: user 'yoda' already exists
+WARNING:root:Cannot call Open vSwitch: ovsdb-server.service is not running.
